@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Sales.Views.ProductsPage"
+             BindingContext="{Binding Main, Source={StaticResource Locator}}"
+             Title="Products">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem
+            
+            Icon="ic_action_add"
+            Command="{Binding AddProductCommand}"
+            />
+
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <StackLayout
+            BackgroundColor="White"
+            BindingContext="{Binding Products}"
+            Padding="5">
+            <ListView
+                
+                IsPullToRefreshEnabled="True"
+                IsRefreshing="{Binding IsRefreshing}"
+                HasUnevenRows="True"
+                ItemsSource="{Binding Products}"
+                RefreshCommand="{Binding RefreshCommand}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <ViewCell.ContextActions>
+                                <MenuItem
+                                    Text="Edit"
+                                    Command="{Binding EditProductCommand}"/>
+                                <MenuItem
+                                    Text="Delete"
+                                    Command="{Binding DeleteProductCommand}"
+                                    IsDestructive="True"/>
+
+                            </ViewCell.ContextActions>
+                            <Grid>
+                                <Grid.GestureRecognizers>
+                                    <TapGestureRecognizer
+                                       Command="{Binding SelectProductCommand}">
+                                        
+                                    </TapGestureRecognizer>
+                                       
+                                </Grid.GestureRecognizers>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="auto"/>
+                                    <ColumnDefinition Width="2*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Image
+                                    Grid.Column="0"
+                                    WidthRequest="100"
+                                    Source="{Binding ImageFullPath}">
+                                    
+                                    
+                                </Image>
+
+                                <Label
+                                    FontAttributes="Bold"
+                                    Grid.Column="1"
+                                    Text="{Binding Description}"
+                                    VerticalOptions="Center">
+                                    
+                                </Label>
+
+                                <Label
+                                    Grid.Column="2"
+                                    HorizontalOptions="End"
+                                    Text="{Binding Price, StringFormat='{0:C2}'}"
+                                    VerticalOptions="Center">
+                                    
+                                </Label>
+                                
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+                
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

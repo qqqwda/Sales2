@@ -1,0 +1,9 @@
+C:\Users\dvargas\source\repos\Sales\Sales.Common\bin\Debug\Sales.Common.dll
+C:\Users\dvargas\source\repos\Sales\Sales.Common\bin\Debug\Sales.Common.pdb
+C:\Users\dvargas\source\repos\Sales\Sales.Common\bin\Debug\Newtonsoft.Json.dll
+C:\Users\dvargas\source\repos\Sales\Sales.Common\bin\Debug\Newtonsoft.Json.xml
+C:\Users\dvargas\source\repos\Sales\Sales.Common\obj\Debug\Sales.Common.csproj.CoreCompileInputs.cache
+C:\Users\dvargas\source\repos\Sales\Sales.Common\obj\Debug\Sales.Common.csproj.CopyComplete
+C:\Users\dvargas\source\repos\Sales\Sales.Common\obj\Debug\Sales.Common.dll
+C:\Users\dvargas\source\repos\Sales\Sales.Common\obj\Debug\Sales.Common.pdb
+C:\Users\dvargas\source\repos\Sales\Sales.Common\obj\Debug\Sales.Common.csprojAssemblyReference.cache

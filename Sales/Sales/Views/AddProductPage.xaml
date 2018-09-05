@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Sales.Views.AddProductPage"
+             BindingContext="{Binding Main, Source={StaticResource Locator}}"
+             Title="Add product">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout
+            BindingContext="{ Binding AddProduct}"
+            Padding="5">
+                <Image
+                    
+                    Source="{Binding ImageSource}">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer
+                            Command="{Binding ChangeImageCommand}">
+                            
+                        </TapGestureRecognizer>
+                    </Image.GestureRecognizers>
+                </Image>
+                <Label
+                    Text="Touch image to change"
+                    FontSize="Small"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center">
+                    
+                </Label>
+
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+                        <RowDefinition Height="3*"></RowDefinition>
+                    </Grid.RowDefinitions>
+                </Grid>
+
+                <Label
+                    Grid.Column="0"
+                    Grid.Row="0"
+                    Text="Description"
+                    VerticalOptions="Center">
+
+                </Label>
+                <Entry
+                    Text="{Binding Description}"
+                    Grid.Column="0"
+                    Grid.Row="1"
+                    Placeholder="Enter Description for your product...">
+                </Entry>
+
+                <Label
+                    
+                    VerticalOptions="Center"
+                    Text="Price"
+                    Grid.Column="0"
+                    Grid.Row="1">
+
+
+                </Label>
+                <Entry
+                    Text="{Binding Price}"
+                    Grid.Column="1"
+                    Grid.Row="1"
+                    Keyboard="Numeric"
+                    Placeholder="Enter price of your product...">
+                </Entry>
+
+                <Label
+                    VerticalOptions="Center"
+                    Text="Remarks"
+                    Grid.Column="0"
+                    Grid.Row="2">
+                    
+
+                </Label>
+                <Editor
+                    Text="{Binding Remarks}"
+                    Grid.Column="1"
+                    Grid.Row="2"
+                    VerticalOptions="FillAndExpand">
+
+                </Editor>
+
+
+                <Button
+                IsEnabled="{Binding IsEnabled}"
+                Command="{Binding SaveCommand}"
+                BackgroundColor="Orange"
+                BorderRadius="23"
+                HeightRequest="46"
+                Text="Save"
+                TextColor="White">
+                </Button>
+
+                <ActivityIndicator
+                    VerticalOptions="CenterAndExpand"               
+                    IsRunning="{Binding IsRunning}">
+
+                </ActivityIndicator>
+
+
+            </StackLayout>
+
+
+        </ScrollView>
+       
+    </ContentPage.Content>
+</ContentPage>
