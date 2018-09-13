@@ -168,4 +168,16 @@
   <ItemGroup>
     <BundleResource Include="Resources\noproduct.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\fab.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ig.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\itg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\tw.png" />
+  </ItemGroup>
 </Project>

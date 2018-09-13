@@ -18,6 +18,13 @@
             BackgroundColor="White"
             BindingContext="{Binding Products}"
             Padding="5">
+            <SearchBar
+                HeightRequest="30"
+                Placeholder="Search"
+                SearchCommand="{Binding SearchCommand}"
+                Text="{Binding Filter}"
+                />
+            
             <ListView
                 
                 IsPullToRefreshEnabled="True"
@@ -25,9 +32,12 @@
                 HasUnevenRows="True"
                 ItemsSource="{Binding Products}"
                 RefreshCommand="{Binding RefreshCommand}">
+                
                 <ListView.ItemTemplate>
+
                     <DataTemplate>
                         <ViewCell>
+                            
                             <ViewCell.ContextActions>
                                 <MenuItem
                                     Text="Edit"

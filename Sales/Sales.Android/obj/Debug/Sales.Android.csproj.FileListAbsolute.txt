@@ -127,8 +127,11 @@ C:\Users\dvargas\source\repos\Sales\Sales\Sales.Android\obj\Debug\android\assets
 C:\Users\dvargas\source\repos\Sales\Sales\Sales.Android\obj\Debug\android\assets\System.Xml.pdb
 C:\Users\dvargas\source\repos\Sales\Sales\Sales.Android\obj\Debug\android\assets\Xamarin.Forms.Core.pdb
 C:\Users\dvargas\source\repos\Sales\Sales\Sales.Android\obj\Debug\android\assets\Xamarin.Forms.Xaml.pdb
+C:\Users\dvargas\source\repos\Sales\Sales\Sales.Android\obj\Debug\res\drawable\fab.png
+C:\Users\dvargas\source\repos\Sales\Sales\Sales.Android\obj\Debug\res\drawable\ig.jpg
+C:\Users\dvargas\source\repos\Sales\Sales\Sales.Android\obj\Debug\res\drawable\itg.png
+C:\Users\dvargas\source\repos\Sales\Sales\Sales.Android\obj\Debug\res\drawable\tw.png
 C:\Users\dvargas\source\repos\Sales\Sales\Sales.Android\bin\Debug\Sales.Android.dll
-C:\Users\dvargas\source\repos\Sales\Sales\Sales.Android\obj\Debug\linksrc\Sales.pdb
 C:\Users\dvargas\source\repos\Sales\Sales\Sales.Android\obj\Debug\linksrc\Sales.Android.dll.mdb
 C:\Users\dvargas\source\repos\Sales\Sales\Sales.Android\obj\Debug\linksrc\FormsViewGroup.dll.mdb
 C:\Users\dvargas\source\repos\Sales\Sales\Sales.Android\obj\Debug\linksrc\GalaSoft.MvvmLight.dll.mdb

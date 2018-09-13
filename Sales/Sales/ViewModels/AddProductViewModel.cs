@@ -34,16 +34,18 @@ namespace Sales.ViewModels
             get { return this.isEnabled; }
             set { this.SetValue(ref this.isEnabled, value); }
         }
-        public ImageSource ImageSource
-        {
-            get { return this.imageSource; }
-            set { this.SetValue(ref this.imageSource, value); }
-        }
+        
 
         public bool IsRunning
         {
             get { return this.isRunning; }
             set { this.SetValue(ref this.isRunning, value); }
+        }
+
+        public ImageSource ImageSource
+        {
+            get { return this.imageSource; }
+            set { this.SetValue(ref this.imageSource, value); }
         }
         #endregion
 

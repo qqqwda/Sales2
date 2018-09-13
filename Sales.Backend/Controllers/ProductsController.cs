@@ -13,6 +13,7 @@ using Sales.Backend.Helpers;
 
 namespace Sales.Backend.Controllers
 {
+    [Authorize]
     public class ProductsController : Controller //ProductsController hereda de Controller
     {
         private LocalDataContext db = new LocalDataContext(); //se crea una instancia del LocalDataContext llamada "db"

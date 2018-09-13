@@ -28,3 +28,4 @@ C:\Users\dvargas\source\repos\Sales\Sales\Sales\obj\Debug\netstandard2.0\Sales.p
 C:\Users\dvargas\source\repos\Sales\Sales\Sales\obj\Debug\netstandard2.0\Views\AddProductPage.xaml.g.cs
 C:\Users\dvargas\source\repos\Sales\Sales\Sales\obj\Debug\netstandard2.0\Views\ProductPage.xaml.g.cs
 C:\Users\dvargas\source\repos\Sales\Sales\Sales\obj\Debug\netstandard2.0\Views\EditProductPage.xaml.g.cs
+C:\Users\dvargas\source\repos\Sales\Sales\Sales\obj\Debug\netstandard2.0\Views\LoginPage.xaml.g.cs

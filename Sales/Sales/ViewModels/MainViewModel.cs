@@ -30,6 +30,7 @@ namespace Sales.ViewModels
 
 
         #region Properties
+        public LoginViewModel Login { get; set; }
 
         public ProductsViewModel Products { get; set; } //atributo Products
         public AddProductViewModel AddProduct { get; set; } 
@@ -40,7 +41,8 @@ namespace Sales.ViewModels
         public MainViewModel()
         {
             instance = this;
-            this.Products = new ProductsViewModel();//Se instancia aqui porque aquí arranca la app
+            this.Login = new LoginViewModel();
+            //this.Products = new ProductsViewModel();//Se instancia aqui porque aquí arranca la app
                                                     // this.AddProduct = new AddProductViewModel(); No es buena practica instanciar AddProduct cuando se ejecuta la app
         } 
         #endregion
