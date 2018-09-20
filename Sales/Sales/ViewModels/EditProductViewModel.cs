@@ -176,7 +176,7 @@ namespace Sales.ViewModels
             viewModel.Products.Add(ToProductItemViewModel(newProduct));
 
 
-            await Application.Current.MainPage.Navigation.PopAsync();
+            await App.Navigator.PopAsync();
 
 
             //apiService.Post<>();
