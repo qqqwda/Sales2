@@ -5,6 +5,7 @@ using Sales.Common.Models;
 using System;
 using System.Collections.Generic;
 using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -57,6 +58,52 @@ namespace Sales.Services
 
         }
 
+        public async Task<Response> GetList<T>(string urlBase, string prefix, string controller, string tokenType, string accessToken) //metodo generico que va a servir para consumir listas de cualquier servicio API
+        {
+
+            try
+            {
+                var client = new HttpClient(); //comunicacion con el client
+                client.BaseAddress = new Uri(urlBase);
+                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(tokenType, accessToken);
+                var url = $"{prefix}{controller}";//es equivalente a hacer string.format
+                var response = await client.GetAsync(url);
+                var answer = await response.Content.ReadAsStringAsync();//recibe el JSON como string
+
+                if (!response.IsSuccessStatusCode) //Si la respuesta no es success
+                {
+                    return new Response
+                    {
+                        IsSuccess = false,
+                        Message = answer,
+
+
+                    };
+
+                }
+                //
+                var list = JsonConvert.DeserializeObject<List<T>>(answer);//Deserializa con "Newtonsoft" la respuesta "answer" y la pasa a un var llamado "list"
+                return new Response
+                {
+                    IsSuccess = true,
+                    Result = list,
+                };
+            }
+            catch (Exception ex)
+            {
+
+                return new Response
+                {
+                    IsSuccess = false,
+                    Message = ex.Message,
+
+                };
+            }
+
+        }
+
+
+
         public async Task<Response> Post<T>(string urlBase, string prefix, string controller, T model)
         {
             try
@@ -67,6 +114,48 @@ namespace Sales.Services
                 client.BaseAddress = new Uri(urlBase);
                 var url = $"{prefix}{controller}";//es equivalente a hacer string.format
                 var response = await client.PostAsync(url,content);//pide url y el contenido del objeto serializado
+                var answer = await response.Content.ReadAsStringAsync();//recibe el JSON como string
+
+                if (!response.IsSuccessStatusCode) //Si la respuesta no es success
+                {
+                    return new Response
+                    {
+                        IsSuccess = false,
+                        Message = answer,
+                    };
+
+                }
+                //
+                var obj = JsonConvert.DeserializeObject<T>(answer);//Deserializa con "Newtonsoft" la respuesta "answer" y la pasa a un var llamado "obj"
+                return new Response
+                {
+                    IsSuccess = true,
+                    Result = obj,
+                };
+            }
+            catch (Exception ex)
+            {
+
+                return new Response
+                {
+                    IsSuccess = false,
+                    Message = ex.Message,
+
+                };
+            }
+
+        }
+        public async Task<Response> Post<T>(string urlBase, string prefix, string controller, T model, string tokenType, string accessToken)
+        {
+            try
+            {
+                var request = JsonConvert.SerializeObject(model); // serializa el objeto model en un string y lo pasa a request
+                var content = new StringContent(request, Encoding.UTF8, "application/json");
+                var client = new HttpClient(); //comunicacion con el client
+                client.BaseAddress = new Uri(urlBase);
+                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(tokenType, accessToken);
+                var url = $"{prefix}{controller}";//es equivalente a hacer string.format
+                var response = await client.PostAsync(url, content);//pide url y el contenido del objeto serializado
                 var answer = await response.Content.ReadAsStringAsync();//recibe el JSON como string
 
                 if (!response.IsSuccessStatusCode) //Si la respuesta no es success
@@ -147,7 +236,45 @@ namespace Sales.Services
 
                 }
                 //
+                return new Response
+                {
+                    IsSuccess = true,
+                };
+            }
+            catch (Exception ex)
+            {
+
+                return new Response
+                {
+                    IsSuccess = false,
+                    Message = ex.Message,
+
+                };
+            }
+
+        }
+        public async Task<Response> Delete(string urlBase, string prefix, string controller, int id, string tokenType, string accessToken)
+        {
+            try
+            {
+                var client = new HttpClient(); //comunicacion con el client
+                client.BaseAddress = new Uri(urlBase);
+                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(tokenType, accessToken);
+                var url = $"{prefix}{controller}/{id}";//es equivalente a hacer string.format
+                var response = await client.DeleteAsync(url);//pide url y el contenido del objeto serializado
+                var answer = await response.Content.ReadAsStringAsync();//recibe el JSON como string
+
+                if (!response.IsSuccessStatusCode) //Si la respuesta no es success
+                {
                     return new Response
+                    {
+                        IsSuccess = false,
+                        Message = answer,
+                    };
+
+                }
+                //
+                return new Response
                 {
                     IsSuccess = true,
                 };
@@ -173,6 +300,48 @@ namespace Sales.Services
                 var content = new StringContent(request, Encoding.UTF8, "application/json");
                 var client = new HttpClient(); //comunicacion con el client
                 client.BaseAddress = new Uri(urlBase);
+                var url = $"{prefix}{controller}/{id}";//es equivalente a hacer string.format
+                var response = await client.PutAsync(url, content);//pide url y el contenido del objeto serializado
+                var answer = await response.Content.ReadAsStringAsync();//recibe el JSON como string
+
+                if (!response.IsSuccessStatusCode) //Si la respuesta no es success
+                {
+                    return new Response
+                    {
+                        IsSuccess = false,
+                        Message = answer,
+                    };
+
+                }
+                //
+                var obj = JsonConvert.DeserializeObject<T>(answer);//Deserializa con "Newtonsoft" la respuesta "answer" y la pasa a un var llamado "obj"
+                return new Response
+                {
+                    IsSuccess = true,
+                    Result = obj,
+                };
+            }
+            catch (Exception ex)
+            {
+
+                return new Response
+                {
+                    IsSuccess = false,
+                    Message = ex.Message,
+
+                };
+            }
+
+        }
+        public async Task<Response> Put<T>(string urlBase, string prefix, string controller, T model, int id, string tokenType, string accessToken)
+        {
+            try
+            {
+                var request = JsonConvert.SerializeObject(model); // serializa el objeto model en un string y lo pasa a request
+                var content = new StringContent(request, Encoding.UTF8, "application/json");
+                var client = new HttpClient(); //comunicacion con el client
+                client.BaseAddress = new Uri(urlBase);
+                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(tokenType, accessToken);
                 var url = $"{prefix}{controller}/{id}";//es equivalente a hacer string.format
                 var response = await client.PutAsync(url, content);//pide url y el contenido del objeto serializado
                 var answer = await response.Content.ReadAsStringAsync();//recibe el JSON como string

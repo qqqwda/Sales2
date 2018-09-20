@@ -131,6 +131,12 @@ C:\Users\dvargas\source\repos\Sales\Sales\Sales.Android\obj\Debug\res\drawable\f
 C:\Users\dvargas\source\repos\Sales\Sales\Sales.Android\obj\Debug\res\drawable\ig.jpg
 C:\Users\dvargas\source\repos\Sales\Sales\Sales.Android\obj\Debug\res\drawable\itg.png
 C:\Users\dvargas\source\repos\Sales\Sales\Sales.Android\obj\Debug\res\drawable\tw.png
+C:\Users\dvargas\source\repos\Sales\Sales\Sales.Android\bin\Debug\Plugin.Settings.Abstractions.dll.mdb
+C:\Users\dvargas\source\repos\Sales\Sales\Sales.Android\bin\Debug\Plugin.Settings.dll.mdb
+C:\Users\dvargas\source\repos\Sales\Sales\Sales.Android\obj\Debug\linksrc\Plugin.Settings.Abstractions.dll.mdb
+C:\Users\dvargas\source\repos\Sales\Sales\Sales.Android\obj\Debug\linksrc\Plugin.Settings.dll.mdb
+C:\Users\dvargas\source\repos\Sales\Sales\Sales.Android\obj\Debug\android\assets\Plugin.Settings.Abstractions.dll.mdb
+C:\Users\dvargas\source\repos\Sales\Sales\Sales.Android\obj\Debug\android\assets\Plugin.Settings.dll.mdb
 C:\Users\dvargas\source\repos\Sales\Sales\Sales.Android\bin\Debug\Sales.Android.dll
 C:\Users\dvargas\source\repos\Sales\Sales\Sales.Android\obj\Debug\linksrc\Sales.Android.dll.mdb
 C:\Users\dvargas\source\repos\Sales\Sales\Sales.Android\obj\Debug\linksrc\FormsViewGroup.dll.mdb
@@ -138,5 +144,7 @@ C:\Users\dvargas\source\repos\Sales\Sales\Sales.Android\obj\Debug\linksrc\GalaSo
 C:\Users\dvargas\source\repos\Sales\Sales\Sales.Android\obj\Debug\linksrc\GalaSoft.MvvmLight.Extras.dll.mdb
 C:\Users\dvargas\source\repos\Sales\Sales\Sales.Android\obj\Debug\linksrc\GalaSoft.MvvmLight.Platform.dll.mdb
 C:\Users\dvargas\source\repos\Sales\Sales\Sales.Android\obj\Debug\linksrc\Plugin.Connectivity.dll.mdb
+C:\Users\dvargas\source\repos\Sales\Sales\Sales.Android\obj\Debug\linksrc\Plugin.Settings.Abstractions.dll.mdb
+C:\Users\dvargas\source\repos\Sales\Sales\Sales.Android\obj\Debug\linksrc\Plugin.Settings.dll.mdb
 C:\Users\dvargas\source\repos\Sales\Sales\Sales.Android\obj\Debug\linksrc\Xamarin.Forms.Platform.Android.dll.mdb
 C:\Users\dvargas\source\repos\Sales\Sales\Sales.Android\obj\Debug\linksrc\Sales.Common.dll.mdb

@@ -39,3 +39,5 @@ Sales.Common
 System.Resources.ResourceManager
 System.ComponentModel
 System.Reflection.Extensions
+Plugin.Settings.Abstractions
+Plugin.Settings

@@ -13,6 +13,8 @@ C:\Users\dvargas\source\repos\Sales\Sales\Sales.Android\obj\Debug\android\assets
 C:\Users\dvargas\source\repos\Sales\Sales\Sales.Android\obj\Debug\android\assets\Plugin.CurrentActivity.dll
 C:\Users\dvargas\source\repos\Sales\Sales\Sales.Android\obj\Debug\android\assets\Plugin.Media.dll
 C:\Users\dvargas\source\repos\Sales\Sales\Sales.Android\obj\Debug\android\assets\Plugin.Permissions.dll
+C:\Users\dvargas\source\repos\Sales\Sales\Sales.Android\obj\Debug\android\assets\Plugin.Settings.Abstractions.dll
+C:\Users\dvargas\source\repos\Sales\Sales\Sales.Android\obj\Debug\android\assets\Plugin.Settings.dll
 C:\Users\dvargas\source\repos\Sales\Sales\Sales.Android\obj\Debug\android\assets\Sales.dll
 C:\Users\dvargas\source\repos\Sales\Sales\Sales.Android\obj\Debug\android\assets\System.Core.dll
 C:\Users\dvargas\source\repos\Sales\Sales\Sales.Android\obj\Debug\android\assets\System.dll

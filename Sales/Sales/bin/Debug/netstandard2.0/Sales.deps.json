@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETStandard,Version=v2.0/",
-    "signature": "0b2dc61356927414082b9d46a702814f683896b2"
+    "signature": "fbdfd5a2731f408d453617a4b4350ef9bba0784b"
   },
   "compilationOptions": {},
   "targets": {
@@ -15,6 +15,7 @@
           "Sales.Common": "1.0.0",
           "Xam.Plugin.Connectivity": "3.2.0",
           "Xam.Plugin.Media": "4.0.1.5",
+          "Xam.Plugins.Settings": "3.1.1",
           "Xamarin.Forms": "3.0.0.561731"
         },
         "runtime": {
@@ -71,6 +72,15 @@
         },
         "runtime": {
           "lib/netstandard2.0/Plugin.Media.dll": {}
+        }
+      },
+      "Xam.Plugins.Settings/3.1.1": {
+        "dependencies": {
+          "NETStandard.Library": "2.0.3"
+        },
+        "runtime": {
+          "lib/netstandard1.0/Plugin.Settings.Abstractions.dll": {},
+          "lib/netstandard1.0/Plugin.Settings.dll": {}
         }
       },
       "Xamarin.Forms/3.0.0.561731": {
@@ -141,6 +151,13 @@
       "sha512": "sha512-a5l/M2Tl06BqBX/uhM/pr+q1jDkh2tRQr5Ne9rjAuD9VYn5STE+7kVFTzIUNPMnMr9PZLJkWP5WAr/tBN5oepw==",
       "path": "xam.plugin.media/4.0.1.5",
       "hashPath": "xam.plugin.media.4.0.1.5.nupkg.sha512"
+    },
+    "Xam.Plugins.Settings/3.1.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-EQEYQJ64ZLqui5GWkLMavgqitHxwUHZHryTzUD1021UBuz1XwDSjPL45W0K4pPXjz9oKbg7YpRXKPR1luPr/5Q==",
+      "path": "xam.plugins.settings/3.1.1",
+      "hashPath": "xam.plugins.settings.3.1.1.nupkg.sha512"
     },
     "Xamarin.Forms/3.0.0.561731": {
       "type": "package",

@@ -1,5 +1,7 @@
 ﻿using GalaSoft.MvvmLight.Command;
+using Sales.Helpers;
 using Sales.Services;
+using Sales.Views;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -43,6 +45,8 @@ namespace Sales.ViewModels
         #region Ctor
         public LoginViewModel()
         {
+            this.Email = "Daniel@gmail.com";
+            this.Password = "123456";
             this.apiService = new ApiService();
             this.IsEnabled = true;
         }
@@ -83,7 +87,14 @@ namespace Sales.ViewModels
                 return;
             }
 
-            await Application.Current.MainPage.DisplayAlert("Ok","ok","ok");
+            Settings.TokenType = token.TokenType;
+            Settings.AccessToken = token.AccessToken;
+            Settings.IsRemembered = this.IsRemembered;
+
+            MainViewModel.GetInstance().Products = new ProductsViewModel();
+            Application.Current.MainPage = new ProductsPage();
+            this.IsRunning = false;
+            this.IsEnabled = true;
         }
 
         private void ForgotPassword()

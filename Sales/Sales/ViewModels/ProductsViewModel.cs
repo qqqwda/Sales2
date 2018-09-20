@@ -1,5 +1,6 @@
 ﻿using GalaSoft.MvvmLight.Command;
 using Sales.Common.Models;
+using Sales.Helpers;
 using Sales.Services;
 using System;
 using System.Collections.Generic;
@@ -86,7 +87,7 @@ namespace Sales.ViewModels
                 return;
             }
 
-            var response = await this.apiService.GetList<Product>("http://10.0.4.113", "/SalesApi/api", "/Products");
+            var response = await this.apiService.GetList<Product>("http://10.0.4.113", "/SalesApi/api", "/Products", Settings.TokenType, Settings.AccessToken);
             if (!response.IsSuccess)
             {
                 this.IsRefreshing = false;

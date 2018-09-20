@@ -29,3 +29,5 @@ C:\Users\dvargas\source\repos\Sales\Sales\Sales\obj\Debug\netstandard2.0\Views\A
 C:\Users\dvargas\source\repos\Sales\Sales\Sales\obj\Debug\netstandard2.0\Views\ProductPage.xaml.g.cs
 C:\Users\dvargas\source\repos\Sales\Sales\Sales\obj\Debug\netstandard2.0\Views\EditProductPage.xaml.g.cs
 C:\Users\dvargas\source\repos\Sales\Sales\Sales\obj\Debug\netstandard2.0\Views\LoginPage.xaml.g.cs
+C:\Users\dvargas\source\repos\Sales\Sales\Sales\obj\Debug\netstandard2.0\Views\MasterPage.xaml.g.cs
+C:\Users\dvargas\source\repos\Sales\Sales\Sales\obj\Debug\netstandard2.0\Views\MenuPage.xaml.g.cs
