@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
 
@@ -17,6 +18,7 @@ namespace Sales.ViewModels
         #region Atributos
         private bool isRefreshing;
         private ApiService apiService;
+        private DataService dataService;
         private ObservableCollection<ProductItemViewModel> products;
         private List<Product> list;
         private String filter;
@@ -69,6 +71,7 @@ namespace Sales.ViewModels
         public ProductsViewModel()
         {
             instance = this;
+            this.dataService = new DataService();
             this.apiService = new ApiService();
             this.LoadProducts();
         } 
@@ -80,25 +83,51 @@ namespace Sales.ViewModels
             this.IsRefreshing = true;
             var connection = await this.apiService.CheckConnection();
 
-            if (!connection.IsSuccess)
+            if (connection.IsSuccess)
             {
-                this.isRefreshing = false;
-                await Application.Current.MainPage.DisplayAlert("Error", connection.Message, "Accept");
-                return;
+                var answer = await this.LoadProductsFromAPI();
+
+                if (answer)
+                {
+                    this.SaveProductsToDB();
+                }
+            }
+            else
+            {
+                await this.LoadProductsFromDB();
             }
 
+            if(this.list == null || this.list.Count == 0)
+            {
+                this.isRefreshing = false;
+                await Application.Current.MainPage.DisplayAlert("Error", "No products", "Accept");
+                return;
+            }
+            this.Products = new ObservableCollection<ProductItemViewModel>(this.ToProductItemViewModel());//Para transformar una lista en una ObservableCollection de product sólo hay que instanciar qué lista y pasarla al constructor de la observableCollection
+            this.IsRefreshing = false;
+        }
+
+        private async Task LoadProductsFromDB()
+        {
+            this.list = await this.dataService.GetAllProducts();
+        }
+
+        private async void SaveProductsToDB()
+        {
+            await dataService.DeleteAllProducts();
+           dataService.InsertAll(this.list);
+        }
+
+        private async Task<bool> LoadProductsFromAPI()
+        {
             var response = await this.apiService.GetList<Product>("http://10.0.4.113", "/SalesApi/api", "/Products", Settings.TokenType, Settings.AccessToken);
             if (!response.IsSuccess)
             {
                 this.IsRefreshing = false;
-                await Application.Current.MainPage.DisplayAlert("Error", response.Message, "Accept");
-                return;
+                return false;
             }
-
             this.list = (List<Product>)response.Result;//El servicio no nos retorna ObservableCollections, nos retorna una Lista. Transformamos el result del response.Result en una Lista del modelo Product
-            this.Products = new ObservableCollection<ProductItemViewModel>(this.ToProductItemViewModel());//Para transformar una lista en una ObservableCollection de product sólo hay que instanciar qué lista y pasarla al constructor de la observableCollection
-            
-            this.IsRefreshing = false;
+            return true;
         }
 
         public IEnumerable<ProductItemViewModel> ToProductItemViewModel()

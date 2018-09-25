@@ -82,7 +82,8 @@ namespace Sales.ViewModels
 
             if(token == null || String.IsNullOrEmpty(token.AccessToken))
             {
-
+                this.IsRunning = false;
+                this.IsEnabled = true;
                 await Application.Current.MainPage.DisplayAlert("Error", "Password or username incorrect","Accept");
                 return;
             }
