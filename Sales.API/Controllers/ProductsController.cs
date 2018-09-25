@@ -16,7 +16,7 @@ using Sales.Domain.Models;
 
 namespace Sales.API.Controllers
 {
-    [Authorize]
+    //[Authorize]
     public class ProductsController : ApiController
     {
         private DataContext db = new DataContext();
