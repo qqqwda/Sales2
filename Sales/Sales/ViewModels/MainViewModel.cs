@@ -33,6 +33,8 @@ namespace Sales.ViewModels
         #region Properties
         public LoginViewModel Login { get; set; }
 
+        public RegisterViewModel Register { get; set; }
+
         public ProductsViewModel Products { get; set; } //atributo Products
         public AddProductViewModel AddProduct { get; set; } 
         #endregion

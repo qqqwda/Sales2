@@ -2901,10 +2901,13 @@ namespace Sales.Droid
 			public const int ic_vol_type_tv_light = 2131296516;
 			
 			// aapt resource value: 0x7F010004
-			public const int ig = 2130771972;
+			public const int if_user_1287507 = 2130771972;
 			
 			// aapt resource value: 0x7F010005
-			public const int itg = 2130771973;
+			public const int ig = 2130771973;
+			
+			// aapt resource value: 0x7F010006
+			public const int itg = 2130771974;
 			
 			// aapt resource value: 0x7F090105
 			public const int mr_button_connected_dark = 2131296517;
@@ -2969,8 +2972,8 @@ namespace Sales.Droid
 			// aapt resource value: 0x7F09005C
 			public const int navigation_empty_icon = 2131296348;
 			
-			// aapt resource value: 0x7F010006
-			public const int noproduct = 2130771974;
+			// aapt resource value: 0x7F010007
+			public const int noproduct = 2130771975;
 			
 			// aapt resource value: 0x7F090001
 			public const int notification_action_background = 2131296257;
@@ -3014,8 +3017,8 @@ namespace Sales.Droid
 			// aapt resource value: 0x7F09006A
 			public const int tooltip_frame_light = 2131296362;
 			
-			// aapt resource value: 0x7F010007
-			public const int tw = 2130771975;
+			// aapt resource value: 0x7F010008
+			public const int tw = 2130771976;
 			
 			static Drawable()
 			{
