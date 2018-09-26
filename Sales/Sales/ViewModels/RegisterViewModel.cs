@@ -1,4 +1,5 @@
 ﻿using GalaSoft.MvvmLight.Command;
+using Plugin.Media;
 using Plugin.Media.Abstractions;
 using Sales.Helpers;
 using Sales.Services;
@@ -80,35 +81,35 @@ namespace Sales.ViewModels
             this.IsRunning = true;
             if (string.IsNullOrEmpty(this.FirstName))
             {
-                Error("First name is empty", "Accept");
+                DisplayAlert.Error("First name is empty", "Accept");
                 return;
             }
             if (!this.Password.Equals(this.ConfirmPassword))
             {
-                Error("Passwords doesn't match", "Accept");
+                DisplayAlert.Error("Passwords doesn't match", "Accept");
                 return;
             }
             if (string.IsNullOrEmpty(this.Address))
             {
-                Error("Address invalid", "Accept");
+                DisplayAlert.Error("Address invalid", "Accept");
                 return;
             }
             if (!RegexHelper.IsValidEmailAddress(this.EMail))
             {
-                Error("Invalid Email","Accept");
+                DisplayAlert.Error("Invalid Email","Accept");
                 return;
             }
             if (string.IsNullOrEmpty(this.Phone))
             {
-                Error("Invalid phone","Accept");
+                DisplayAlert.Error("Invalid phone","Accept");
                 return;
             }
         }
 
-        private async void Error(string v2, string v3)
-        {
-            await Application.Current.MainPage.DisplayAlert("Error", v2, v3);
-        }
+
+        
+
+
         #endregion
 
         #region ICommand
@@ -120,6 +121,57 @@ namespace Sales.ViewModels
                 return new RelayCommand(Save);
             }
         }
+
+        public ICommand ChangeImageCommand
+        {
+            get
+            {
+                return new RelayCommand(ChangeImage);
+            }
+        }
         #endregion
+
+        private async void ChangeImage()
+        {
+            await CrossMedia.Current.Initialize();
+
+            var source = await Application.Current.MainPage.DisplayActionSheet(
+                "Image source",
+                "Cancel",
+                null,
+                "From gallery",
+                "New picture");
+
+            if (source.Equals("Cancel"))
+            {
+                this.file = null;
+                return;
+            }
+            if (source.Equals("New Picture"))
+            {
+                this.file = await CrossMedia.Current.TakePhotoAsync(
+                    new StoreCameraMediaOptions
+                    {
+                        Directory = "Sample",
+                        Name = "test.jpg",
+                        PhotoSize = PhotoSize.Small,
+
+                    }
+                    );
+            }
+            else
+            {
+                this.file = await CrossMedia.Current.PickPhotoAsync();
+            }
+
+            if (this.file != null)
+            {
+                this.imageSource = ImageSource.FromStream(() =>
+                {
+                    var stream = this.file.GetStream();
+                    return stream;
+                });
+            }
+        }
     }
 }

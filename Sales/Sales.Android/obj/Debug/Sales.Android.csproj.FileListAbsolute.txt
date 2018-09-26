@@ -139,7 +139,6 @@ C:\Users\dvargas\source\repos\Sales\Sales\Sales.Android\obj\Debug\android\assets
 C:\Users\dvargas\source\repos\Sales\Sales\Sales.Android\obj\Debug\android\assets\Xamarin.Forms.Xaml.pdb
 C:\Users\dvargas\source\repos\Sales\Sales\Sales.Android\obj\Debug\res\drawable\nouser.png
 C:\Users\dvargas\source\repos\Sales\Sales\Sales.Android\bin\Debug\Sales.Android.dll
-C:\Users\dvargas\source\repos\Sales\Sales\Sales.Android\bin\Debug\Sales.Common.dll
 C:\Users\dvargas\source\repos\Sales\Sales\Sales.Android\obj\Debug\linksrc\Sales.pdb
 C:\Users\dvargas\source\repos\Sales\Sales\Sales.Android\obj\Debug\linksrc\Sales.Android.dll.mdb
 C:\Users\dvargas\source\repos\Sales\Sales\Sales.Android\obj\Debug\linksrc\FormsViewGroup.dll.mdb

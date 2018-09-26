@@ -1,11 +1,134 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Sales.Views.RegisterPage">
+             x:Class="Sales.Views.RegisterPage"
+             BindingContext="{Binding Main, Source={StaticResource Locator}}"
+         	Title="Register">
     <ContentPage.Content>
-        <StackLayout>
-            
-            
-        </StackLayout>
+        <ScrollView
+        	BindingContext="{Binding Register}">
+            <StackLayout
+            	Padding="5">
+                <Image
+                	Source="{Binding ImageSource}">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding ChangeImageCommand}"/>
+                    </Image.GestureRecognizers>
+                </Image>
+                <Label
+                	FontSize="Small"
+                	HorizontalOptions="Center"
+                	Text="Change Image">
+                </Label>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label
+                    	Grid.Column="0"
+                    	Grid.Row="0"
+                    	Text="First name"
+                    	VerticalOptions="Center">
+                    </Label>
+                    <Entry
+                    	Grid.Column="1"
+                    	Grid.Row="0"
+                    	Text="{Binding FirstName}"
+                    	Placeholder="Enter your first name">
+                    </Entry>
+                    <Label
+                    	Grid.Column="0"
+                    	Grid.Row="1"
+                    	Text="Last name"
+                    	VerticalOptions="Center">
+                    </Label>
+                    <Entry
+                    	Grid.Column="1"
+                    	Grid.Row="1"
+                    	Text="{Binding LastName}"
+                    	Placeholder="Enter your last name">
+                    </Entry>
+                    <Label
+                    	Grid.Column="0"
+                    	Grid.Row="2"
+                    	Text="Email"
+                    	VerticalOptions="Center">
+                    </Label>
+                    <Entry
+                    	Grid.Column="1"
+                    	Grid.Row="2"
+                    	Keyboard="Email"
+                    	Text="{Binding EMail}"
+                    	Placeholder="Enter your Email">
+                    </Entry>
+                    <Label
+                    	Grid.Column="0"
+                    	Grid.Row="3"
+                    	Text="Phone"
+                    	VerticalOptions="Center">
+                    </Label>
+                    <Entry
+                    	Grid.Column="1"
+                    	Grid.Row="3"
+                    	Keyboard="Telephone"
+                    	Text="{Binding Phone}"
+                    	Placeholder="Enter your phone number">
+                    </Entry>
+                    <Label
+                    	Grid.Column="0"
+                    	Grid.Row="4"
+                    	Text="Address"
+                    	VerticalOptions="Center">
+                    </Label>
+                    <Entry
+                    	Grid.Column="1"
+                    	Grid.Row="4"
+                    	Text="{Binding Address}"
+                    	Placeholder="Enter your address">
+                    </Entry>
+                    <Label
+                    	Grid.Column="0"
+                    	Grid.Row="5"
+                    	Text="Password"
+                    	VerticalOptions="Center">
+                    </Label>
+                    <Entry
+                    	Grid.Column="1"
+                    	Grid.Row="5"
+                    	IsPassword="True"
+                    	Text="{Binding Password}"
+                    	Placeholder="Enter password">
+                    </Entry>
+                    <Label
+                    	Grid.Column="0"
+                    	Grid.Row="6"
+                    	Text="Confirm password"
+                    	VerticalOptions="Center">
+                    </Label>
+                    <Entry
+                    	Grid.Column="1"
+                    	Grid.Row="6"
+                    	IsPassword="True"
+                    	Text="{Binding PasswordConfirm}"
+                    	Placeholder="Confirm your password">
+                    </Entry>
+                </Grid>
+                <ActivityIndicator
+                	IsRunning="{Binding IsRunning}"
+                	VerticalOptions="CenterAndExpand">
+                </ActivityIndicator>
+                <Button
+                	BackgroundColor="Navy"
+                	BorderRadius="23"
+                	Command="{Binding SaveCommand}"
+                	HeightRequest="46"
+                	IsEnabled="{Binding IsEnabled}"
+                	Text="Save"
+                	TextColor="White">
+                </Button>
+            </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
+
 </ContentPage>

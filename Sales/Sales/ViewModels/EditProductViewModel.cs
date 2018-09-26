@@ -130,7 +130,7 @@ namespace Sales.ViewModels
             {
 
                 this.IsRunning = false;
-                await Application.Current.MainPage.DisplayAlert("Error", "Please, add a description", "Appect");
+                DisplayAlert.Error("Please, add a description", "Accept");
                 return;
             }
             
@@ -138,7 +138,7 @@ namespace Sales.ViewModels
             if (this.Product.Price <= 0)
             {
                 this.IsRunning = false;
-                await Application.Current.MainPage.DisplayAlert("Error", "Please, add a positive price", "Appect");
+               DisplayAlert.Error("Please, add a positive price", "Appect");
                 return;
             }
 
@@ -151,7 +151,7 @@ namespace Sales.ViewModels
             {
                 this.IsEnabled = true;
                 this.IsRunning = false;
-                await Application.Current.MainPage.DisplayAlert("Error", connection.Message, "Accept");
+                DisplayAlert.Error(connection.Message, "Accept");
                 return;
             }
             byte[] imageArray = null;
@@ -166,7 +166,7 @@ namespace Sales.ViewModels
             {
                 this.IsEnabled = true;
                 this.IsRunning = false;
-                await Application.Current.MainPage.DisplayAlert("Error", response.Message, "Accept");
+               DisplayAlert.Error(response.Message, "Accept");
                 return;
             }
 

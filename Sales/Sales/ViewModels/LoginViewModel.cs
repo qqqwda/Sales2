@@ -57,12 +57,12 @@ namespace Sales.ViewModels
         {
             if (String.IsNullOrEmpty(this.Email))
             {
-                Error("You must enter an Email", "Accept");
+                DisplayAlert.Error("EMail incorrect","Accept");
                 return;
             }
             if (String.IsNullOrEmpty(this.Password))
             {
-                Error("You must enter a password", "Accept");
+                DisplayAlert.Error("You must enter a password", "Accept");
                 return;
             }
 
@@ -74,7 +74,7 @@ namespace Sales.ViewModels
             {
                 this.IsRunning = false;
                 this.IsEnabled = true;
-                Error("Please turn on your internet settings", "Accept");
+                DisplayAlert.Error("Please turn on your internet settings", "Accept");
                 return;
             }
 
@@ -84,7 +84,7 @@ namespace Sales.ViewModels
             {
                 this.IsRunning = false;
                 this.IsEnabled = true;
-                Error("Password or username incorrect","Accept");
+                DisplayAlert.Error("Password or username incorrect","Accept");
                 return;
             }
 
@@ -100,10 +100,7 @@ namespace Sales.ViewModels
 
 
 
-        private async void Error(string v2, string v3)
-        {
-            await Application.Current.MainPage.DisplayAlert("Error", v2, v3);
-        }
+        
 
 
         private void ForgotPassword()
