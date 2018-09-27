@@ -1,6 +1,7 @@
 ﻿using GalaSoft.MvvmLight.Command;
 using Plugin.Media;
 using Plugin.Media.Abstractions;
+using Sales.Common.Models;
 using Sales.Helpers;
 using Sales.Services;
 using System;
@@ -52,7 +53,7 @@ namespace Sales.ViewModels
 
         public string Password { get; set; }
 
-        public string ConfirmPassword { get; set; }
+        public string PasswordConfirm { get; set; }
 
         public bool IsRunning
         {
@@ -79,32 +80,87 @@ namespace Sales.ViewModels
         private async void Save()
         {
             this.IsRunning = true;
+            this.IsEnabled = false;
             if (string.IsNullOrEmpty(this.FirstName))
             {
+                this.IsEnabled = true;
+                this.IsRunning = false;
                 DisplayAlert.Error("First name is empty", "Accept");
                 return;
             }
-            if (!this.Password.Equals(this.ConfirmPassword))
+            if (!this.Password.Equals(this.PasswordConfirm))
             {
+                this.IsEnabled = true;
+                this.IsRunning = false;
                 DisplayAlert.Error("Passwords doesn't match", "Accept");
+                return;
+            }
+            if (string.IsNullOrEmpty(this.Password) || this.Password.Length < 6)
+            {
+                this.IsEnabled = true;
+                this.IsRunning = false;
+                DisplayAlert.Error("Password must have 6 digits", "Accept");
                 return;
             }
             if (string.IsNullOrEmpty(this.Address))
             {
+                this.IsEnabled = true;
+                this.IsRunning = false;
                 DisplayAlert.Error("Address invalid", "Accept");
                 return;
             }
             if (!RegexHelper.IsValidEmailAddress(this.EMail))
             {
+                this.IsEnabled = true;
+                this.IsRunning = false;
                 DisplayAlert.Error("Invalid Email","Accept");
                 return;
             }
             if (string.IsNullOrEmpty(this.Phone))
             {
+                this.IsEnabled = true;
+                this.IsRunning = false;
                 DisplayAlert.Error("Invalid phone","Accept");
                 return;
             }
+
+            var connection = await this.apiService.CheckConnection();
+
+            if (!connection.IsSuccess)
+            {
+                this.IsEnabled = true;
+                this.IsRunning = false;
+                DisplayAlert.Error(connection.Message, "Accept");
+                return;
+            }
+
+            byte[] imageArray = null;
+            if (this.file != null)
+            {
+                imageArray = FileHelper.ReadFully(this.file.GetStream());
+            }
+
+            var userRequest = new UserRequest{Address = this.Address, EMail = this.EMail, FirstName = this.FirstName, LastName=this.LastName, Phone=this.Phone, Password=this.Password, ImageArray=imageArray};
+            string controller = Application.Current.Resources["UrlUsersController"].ToString();
+
+            var response = await this.apiService.Post("http://10.0.4.113", "/SalesApi/api", controller, userRequest);
+
+            if (!response.IsSuccess)
+            {
+                this.IsEnabled = true;
+                this.IsRunning = false;
+                DisplayAlert.Error(response.Message, "Accept");
+                return;
+            }
+
+
+            this.IsRunning = false;
+            await Application.Current.MainPage.DisplayAlert("Confirmed","Now you can access with your Email","Accept");
+            Application.Current.MainPage.Navigation.PopAsync();
+            return;
         }
+
+
 
 
         
