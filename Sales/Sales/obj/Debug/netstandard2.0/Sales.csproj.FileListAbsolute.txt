@@ -21,6 +21,7 @@ C:\Users\dvargas\source\repos\Sales\Sales\Sales\obj\Debug\netstandard2.0\Views\M
 C:\Users\dvargas\source\repos\Sales\Sales\Sales\obj\Debug\netstandard2.0\Views\MenuPage.xaml.g.cs
 C:\Users\dvargas\source\repos\Sales\Sales\Sales\obj\Debug\netstandard2.0\Views\ProductPage.xaml.g.cs
 C:\Users\dvargas\source\repos\Sales\Sales\Sales\obj\Debug\netstandard2.0\Views\ProductsPage.xaml.g.cs
+C:\Users\dvargas\source\repos\Sales\Sales\Sales\obj\Debug\netstandard2.0\Views\RegisterPage.xaml.g.cs
 C:\Users\dvargas\source\repos\Sales\Sales\Sales\obj\Debug\netstandard2.0\Sales.csproj.CoreCompileInputs.cache
 C:\Users\dvargas\source\repos\Sales\Sales\Sales\obj\Debug\netstandard2.0\Sales.AssemblyInfoInputs.cache
 C:\Users\dvargas\source\repos\Sales\Sales\Sales\obj\Debug\netstandard2.0\Sales.AssemblyInfo.cs
@@ -31,4 +32,3 @@ C:\Users\dvargas\source\repos\Sales\Sales\Sales\obj\Debug\netstandard2.0\pt\Sale
 C:\Users\dvargas\source\repos\Sales\Sales\Sales\obj\Debug\netstandard2.0\Sales.csproj.CopyComplete
 C:\Users\dvargas\source\repos\Sales\Sales\Sales\obj\Debug\netstandard2.0\Sales.dll
 C:\Users\dvargas\source\repos\Sales\Sales\Sales\obj\Debug\netstandard2.0\Sales.pdb
-C:\Users\dvargas\source\repos\Sales\Sales\Sales\obj\Debug\netstandard2.0\Views\RegisterPage.xaml.g.cs

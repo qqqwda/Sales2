@@ -118,8 +118,8 @@ C:\Users\dvargas\source\repos\Sales\Sales.Backend\bin\Microsoft.AI.DependencyCol
 C:\Users\dvargas\source\repos\Sales\Sales.Backend\bin\Microsoft.AI.WindowsServer.xml
 C:\Users\dvargas\source\repos\Sales\Sales.Backend\bin\Microsoft.AI.Web.xml
 C:\Users\dvargas\source\repos\Sales\Sales.Backend\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-C:\Users\dvargas\source\repos\Sales\Sales.Backend\obj\Debug\Sales.Backend.csprojAssemblyReference.cache
 C:\Users\dvargas\source\repos\Sales\Sales.Backend\obj\Debug\Sales.Backend.csproj.CoreCompileInputs.cache
 C:\Users\dvargas\source\repos\Sales\Sales.Backend\obj\Debug\Sales.Backend.csproj.CopyComplete
 C:\Users\dvargas\source\repos\Sales\Sales.Backend\obj\Debug\Sales.Backend.dll
 C:\Users\dvargas\source\repos\Sales\Sales.Backend\obj\Debug\Sales.Backend.pdb
+C:\Users\dvargas\source\repos\Sales\Sales.Backend\obj\Debug\Sales.Backend.csprojAssemblyReference.cache

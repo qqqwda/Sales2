@@ -57,7 +57,6 @@ namespace Sales.Services
             }
 
         }
-
         public async Task<Response> GetList<T>(string urlBase, string prefix, string controller, string tokenType, string accessToken) //metodo generico que va a servir para consumir listas de cualquier servicio API
         {
 
@@ -101,9 +100,6 @@ namespace Sales.Services
             }
 
         }
-
-
-
         public async Task<Response> Post<T>(string urlBase, string prefix, string controller, T model)
         {
             try
@@ -215,7 +211,6 @@ namespace Sales.Services
                 Message = "Ok",
             };
         }
-
         public async Task<Response> Delete(string urlBase, string prefix, string controller, int id)
         {
             try
@@ -291,7 +286,6 @@ namespace Sales.Services
             }
 
         }
-
         public async Task<Response> Put<T>(string urlBase, string prefix, string controller, T model, int id)
         {
             try
@@ -375,7 +369,6 @@ namespace Sales.Services
             }
 
         }
-
         public async Task<TokenResponse> GetToken(
                 string urlBase,
                 string username,
@@ -400,7 +393,49 @@ namespace Sales.Services
                             return null;
                         }
                     }
+        public async Task<Response> GetUser(string urlBase, string prefix, string controller, string email, string tokenType, string accessToken)
+        {
+            try
+            {
+                var getUserRequest = new GetUserRequest
+                {
+                    Email = email,
+                };
 
+                var request = JsonConvert.SerializeObject(getUserRequest);
+                var content = new StringContent(request, Encoding.UTF8, "application/json");
+
+                var client = new HttpClient();
+                client.BaseAddress = new Uri(urlBase);
+                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(tokenType, accessToken);
+                var url = $"{prefix}{controller}";
+                var response = await client.PostAsync(url, content);
+                var answer = await response.Content.ReadAsStringAsync();
+                if (!response.IsSuccessStatusCode)
+                {
+                    return new Response
+                    {
+                        IsSuccess = false,
+                        Message = answer,
+                    };
+                }
+
+                var user = JsonConvert.DeserializeObject<MyUserASP>(answer);
+                return new Response
+                {
+                    IsSuccess = true,
+                    Result = user,
+                };
+            }
+            catch (Exception ex)
+            {
+                return new Response
+                {
+                    IsSuccess = false,
+                    Message = ex.Message,
+                };
+            }
+        }
 
 
 

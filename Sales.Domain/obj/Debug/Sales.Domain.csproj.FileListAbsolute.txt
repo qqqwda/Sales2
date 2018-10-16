@@ -9,8 +9,8 @@ C:\Users\dvargas\source\repos\Sales\Sales.Domain\bin\Debug\Sales.Common.pdb
 C:\Users\dvargas\source\repos\Sales\Sales.Domain\bin\Debug\EntityFramework.xml
 C:\Users\dvargas\source\repos\Sales\Sales.Domain\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\dvargas\source\repos\Sales\Sales.Domain\bin\Debug\Newtonsoft.Json.xml
-C:\Users\dvargas\source\repos\Sales\Sales.Domain\obj\Debug\Sales.Domain.csprojAssemblyReference.cache
 C:\Users\dvargas\source\repos\Sales\Sales.Domain\obj\Debug\Sales.Domain.csproj.CoreCompileInputs.cache
 C:\Users\dvargas\source\repos\Sales\Sales.Domain\obj\Debug\Sales.Domain.csproj.CopyComplete
 C:\Users\dvargas\source\repos\Sales\Sales.Domain\obj\Debug\Sales.Domain.dll
 C:\Users\dvargas\source\repos\Sales\Sales.Domain\obj\Debug\Sales.Domain.pdb
+C:\Users\dvargas\source\repos\Sales\Sales.Domain\obj\Debug\Sales.Domain.csprojAssemblyReference.cache

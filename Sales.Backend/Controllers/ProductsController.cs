@@ -21,7 +21,10 @@ namespace Sales.Backend.Controllers
         // GET: Products
         public async Task<ActionResult> Index() //lista los Productos (Método aysnc) en controllador "Index()"
         {
-            return View(await db.Products.OrderBy(p => p.Description).ToListAsync());
+            
+            db.SaveChanges();
+
+            return View(await db.Products.OrderBy(p => p.PublishOn).ToListAsync());
         }
 
         // GET: Products/Details/5

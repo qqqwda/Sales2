@@ -1,6 +1,7 @@
 ﻿
 namespace Sales.Common.Models
 {
+    using Newtonsoft.Json;
     using System;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
@@ -9,6 +10,16 @@ namespace Sales.Common.Models
     {
         [Key]
         public int ProductId { get; set; }
+
+        //Clave foránea
+        public int CategoryId { get; set; }
+
+        [Required]
+        [StringLength(128)]
+        public string UserId { get; set; }
+
+        [JsonIgnore]
+        public virtual Category Category { get; set; }
 
 
         [Required]
@@ -53,5 +64,6 @@ namespace Sales.Common.Models
 
             }
         }
+        
     }
 }

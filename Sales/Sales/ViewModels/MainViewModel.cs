@@ -1,4 +1,5 @@
 ﻿using GalaSoft.MvvmLight.Command;
+using Sales.Common.Models;
 using Sales.Views;
 using System;
 using System.Collections.Generic;
@@ -32,6 +33,19 @@ namespace Sales.ViewModels
 
         #region Properties
         public LoginViewModel Login { get; set; }
+        public string UserFullName
+        {
+            get
+            {
+                if (this.UserASP != null && this.UserASP.Claims != null && this.UserASP.Claims.Count > 1)
+                {
+                    return $"{this.UserASP.Claims[0].ClaimValue} {this.UserASP.Claims[1].ClaimValue}";
+                }
+
+                return null;
+            }
+        }
+        public MyUserASP UserASP { get; set; }
 
         public RegisterViewModel Register { get; set; }
 

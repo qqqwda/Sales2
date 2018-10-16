@@ -12,9 +12,13 @@ namespace Sales.Domain.Models
     {
         public DataContext() : base("DefaultConnection")
         {
-                
+
         }
 
         public DbSet<Product> Products { get; set; }//Mapea en la bd y llama a la clase "Product" "Products" en una tabla en la BD
+        public DbSet<Category> Categories { get; set; }
+
+
+        
     }
 }
