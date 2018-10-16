@@ -6,3 +6,4 @@ C:\Users\dvargas\source\repos\Sales\Sales.Common\obj\Debug\Sales.Common.csproj.C
 C:\Users\dvargas\source\repos\Sales\Sales.Common\obj\Debug\Sales.Common.csproj.CopyComplete
 C:\Users\dvargas\source\repos\Sales\Sales.Common\obj\Debug\Sales.Common.dll
 C:\Users\dvargas\source\repos\Sales\Sales.Common\obj\Debug\Sales.Common.pdb
+C:\Users\dvargas\source\repos\Sales\Sales.Common\obj\Debug\Sales.Common.csprojAssemblyReference.cache

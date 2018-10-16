@@ -32,3 +32,4 @@ C:\Users\dvargas\source\repos\Sales\Sales\Sales\obj\Debug\netstandard2.0\pt\Sale
 C:\Users\dvargas\source\repos\Sales\Sales\Sales\obj\Debug\netstandard2.0\Sales.csproj.CopyComplete
 C:\Users\dvargas\source\repos\Sales\Sales\Sales\obj\Debug\netstandard2.0\Sales.dll
 C:\Users\dvargas\source\repos\Sales\Sales\Sales\obj\Debug\netstandard2.0\Sales.pdb
+C:\Users\dvargas\source\repos\Sales\Sales\Sales\obj\Debug\netstandard2.0\Views\CategoriesPage.xaml.g.cs

@@ -46,7 +46,7 @@ namespace Sales.ViewModels
             }
         }
         public MyUserASP UserASP { get; set; }
-
+        public CategoriesViewModel Categories { get; set; }
         public RegisterViewModel Register { get; set; }
 
         public ProductsViewModel Products { get; set; } //atributo Products

@@ -26,13 +26,13 @@ namespace Sales
                 {
                     mainViewModel.UserASP = JsonConvert.DeserializeObject<MyUserASP>(Settings.UserASP);
                 }
-                mainViewModel.Products = new ProductsViewModel();
+                mainViewModel.Categories = new CategoriesViewModel();
                 this.MainPage = new MasterPage();
             }
             else
             {
                 mainViewModel.Login = new LoginViewModel();
-                this.MainPage = new NavigationPage(new LoginPage());
+                this.MainPage = new NavigationPage(new CategoriesPage());
             }
 
             //if (Settings.IsRemembered && !string.IsNullOrEmpty(Settings.AccessToken))
