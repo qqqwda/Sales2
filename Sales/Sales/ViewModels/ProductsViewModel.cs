@@ -34,16 +34,13 @@ namespace Sales.ViewModels
 
         public static ProductsViewModel GetInstance()
         {
-            if(instance == null)
-            {
-                return new ProductsViewModel();
-            }
-
             return instance;
         }
         #endregion
 
         #region Properties
+        public Category Category { get; set; }
+
         public bool IsRefreshing
         {
             get { return this.isRefreshing; }
@@ -67,45 +64,68 @@ namespace Sales.ViewModels
         #endregion
 
         #region Constructor
-
-        public ProductsViewModel()
+        public ProductsViewModel(Category category)
         {
             instance = this;
+            this.Category = category;
             this.dataService = new DataService();
             this.apiService = new ApiService();
             this.LoadProducts();
-        } 
+        }
         #endregion
 
         #region Methods
+        //private async void LoadProducts()
+        //{
+        //    this.IsRefreshing = true;
+        //    var connection = await this.apiService.CheckConnection();
+
+        //    if (connection.IsSuccess)
+        //    {
+        //        var answer = await this.LoadProductsFromAPI();
+
+        //        if (answer)
+        //        {
+        //            this.SaveProductsToDB();
+        //        }
+        //    }
+        //    else
+        //    {
+        //        await this.LoadProductsFromDB();
+        //    }
+
+        //    if(this.list == null || this.list.Count == 0)
+        //    {
+        //        this.isRefreshing = false;
+        //        await Application.Current.MainPage.DisplayAlert("Error", "No products", "Accept");
+        //        return;
+        //    }
+        //    this.Products = new ObservableCollection<ProductItemViewModel>(this.ToProductItemViewModel());//Para transformar una lista en una ObservableCollection de product sólo hay que instanciar qué lista y pasarla al constructor de la observableCollection
+        //    this.IsRefreshing = false;
+        //}
+
         private async void LoadProducts()
         {
             this.IsRefreshing = true;
+
             var connection = await this.apiService.CheckConnection();
-
-            if (connection.IsSuccess)
+            if (!connection.IsSuccess)
             {
-                var answer = await this.LoadProductsFromAPI();
-
-                if (answer)
-                {
-                    this.SaveProductsToDB();
-                }
-            }
-            else
-            {
-                await this.LoadProductsFromDB();
-            }
-
-            if(this.list == null || this.list.Count == 0)
-            {
-                this.isRefreshing = false;
-                await Application.Current.MainPage.DisplayAlert("Error", "No products", "Accept");
+                this.IsRefreshing = false;
+                await Application.Current.MainPage.DisplayAlert("Error", connection.Message, "Accept");
                 return;
             }
-            this.Products = new ObservableCollection<ProductItemViewModel>(this.ToProductItemViewModel());//Para transformar una lista en una ObservableCollection de product sólo hay que instanciar qué lista y pasarla al constructor de la observableCollection
+
+            var answer = await this.LoadProductsFromAPI();
+            if (answer)
+            {
+                this.RefreshList();
+            }
+
             this.IsRefreshing = false;
         }
+
+
 
         private async Task LoadProductsFromDB()
         {
@@ -120,15 +140,16 @@ namespace Sales.ViewModels
 
         private async Task<bool> LoadProductsFromAPI()
         {
-            var response = await this.apiService.GetList<Product>("http://10.0.4.113", "/SalesApi/api", "/Products", Settings.TokenType, Settings.AccessToken);
+            var response = await this.apiService.GetList<Product>("http://10.0.4.113", "/SalesApi/api", "/Products/", this.Category.CategoryId, Settings.TokenType, Settings.AccessToken);
             if (!response.IsSuccess)
             {
-                this.IsRefreshing = false;
                 return false;
             }
-            this.list = (List<Product>)response.Result;//El servicio no nos retorna ObservableCollections, nos retorna una Lista. Transformamos el result del response.Result en una Lista del modelo Product
+
+            this.list = (List<Product>)response.Result;
             return true;
         }
+
 
         public IEnumerable<ProductItemViewModel> ToProductItemViewModel()
         {

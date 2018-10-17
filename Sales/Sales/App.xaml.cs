@@ -32,7 +32,7 @@ namespace Sales
             else
             {
                 mainViewModel.Login = new LoginViewModel();
-                this.MainPage = new NavigationPage(new CategoriesPage());
+                this.MainPage = new NavigationPage(new LoginPage());
             }
 
             //if (Settings.IsRemembered && !string.IsNullOrEmpty(Settings.AccessToken))

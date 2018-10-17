@@ -10,7 +10,7 @@ namespace Sales.ViewModels
 {
     public class CategoryItemViewModel : Category
     {
-        public ICommand GoToCategoryCommand
+        public ICommand GotoCategoryCommand
         {
             get
             {
@@ -20,7 +20,7 @@ namespace Sales.ViewModels
 
         private async void GoToCategory()
         {
-            MainViewModel.GetInstance().Products = new ProductsViewModel(); //this);
+            MainViewModel.GetInstance().Products = new ProductsViewModel(this); //this);
             await App.Navigator.PushAsync(new ProductsPage());
         }
     }

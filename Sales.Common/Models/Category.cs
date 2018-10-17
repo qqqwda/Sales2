@@ -12,7 +12,6 @@ namespace Sales.Common.Models
     {
         [Key]
         public int CategoryId { get; set; }
-
         [Required]
         [StringLength(50)]
         public string Description { get; set; }
